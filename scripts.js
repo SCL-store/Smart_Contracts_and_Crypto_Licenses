@@ -1,37 +1,34 @@
 document.getElementById('contractForm').addEventListener('submit', function(e) {
   e.preventDefault();
-
-  // Show contract recommendations
-  document.querySelector('.main-content').style.display = 'none';
+  document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
+  document.querySelector('.form-container').style.display = 'none';
   document.getElementById('contractRecommendations').style.display = 'block';
 });
 
 document.getElementById('contractType').addEventListener('change', function() {
   const contractType = this.value;
   const relatedQuestionDiv = document.getElementById('relatedQuestion');
-
-  // Clear previous question
   relatedQuestionDiv.innerHTML = '';
 
   if (contractType === 'erc20') {
     relatedQuestionDiv.innerHTML = `
-      <label for="tokenSupply">What is the total supply of your token?</label>
-      <input type="number" id="tokenSupply" name="tokenSupply" placeholder="Total token supply" required>
+      <label for="tokenSupply">Token Supply?</label>
+      <input type="number" id="tokenSupply" name="tokenSupply" placeholder="Total supply" required>
     `;
   } else if (contractType === 'erc721') {
     relatedQuestionDiv.innerHTML = `
-      <label for="nftCount">How many unique NFTs will this contract manage?</label>
+      <label for="nftCount">How many NFTs?</label>
       <input type="number" id="nftCount" name="nftCount" placeholder="Total NFTs" required>
     `;
   } else if (contractType === 'staking') {
     relatedQuestionDiv.innerHTML = `
-      <label for="stakingDuration">What is the staking duration?</label>
-      <input type="number" id="stakingDuration" name="stakingDuration" placeholder="Staking duration (in days)" required>
+      <label for="stakingDuration">Staking Duration (days)</label>
+      <input type="number" id="stakingDuration" name="stakingDuration" required>
     `;
   } else if (contractType === 'ico') {
     relatedQuestionDiv.innerHTML = `
-      <label for="icoTarget">What is the ICO target amount?</label>
-      <input type="number" id="icoTarget" name="icoTarget" placeholder="Target amount in ETH" required>
+      <label for="icoTarget">ICO Target (ETH)</label>
+      <input type="number" id="icoTarget" name="icoTarget" required>
     `;
   }
 });
