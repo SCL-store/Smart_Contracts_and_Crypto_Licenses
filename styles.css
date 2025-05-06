@@ -1,27 +1,18 @@
-/* GLOBAL RESET AND FONT */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+body, html {
   font-family: 'Orbitron', sans-serif;
   background: #0d0d0d;
   color: #fff;
-  height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
-body::after {
-  content: "";
-  display: block;
-  height: 160px;
-}
-
-/* BACKGROUND ANIMATION */
 .background-animation {
   position: fixed;
   top: 0;
@@ -39,19 +30,6 @@ body::after {
   100% { transform: scale(1); opacity: 0.7; }
 }
 
-/* PAGE WRAPPER */
-.page-wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-/* HEADER */
 header {
   text-align: center;
   padding: 30px 20px;
@@ -70,7 +48,6 @@ header p {
   color: #aaa;
 }
 
-/* MAIN CONTENT */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -83,11 +60,16 @@ header p {
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* FORM */
 .form-container {
   background: rgba(255,255,255,0.05);
   padding: 30px;
@@ -97,7 +79,7 @@ header p {
   box-shadow: 0 0 20px rgba(0,255,255,0.2);
 }
 
-.form-group {
+form .form-group {
   margin: 15px 0;
 }
 
@@ -132,7 +114,6 @@ button:hover {
   background: #00cccc;
 }
 
-/* CONTRACT CARDS */
 .card {
   background: #1a1a1a;
   border: 1px solid #444;
@@ -152,7 +133,6 @@ button:hover {
   background: #00bbaa;
 }
 
-/* PAYMENT SECTION */
 .payment-address {
   font-size: 1.2rem;
   color: #00ffff;
@@ -174,17 +154,13 @@ button:hover {
   100% { transform: rotate(360deg); }
 }
 
-/* FOOTER */
 .site-footer {
   background-color: #111;
   color: #ccc;
   padding: 40px 20px;
+  margin-top: 60px;
   font-size: 0.95rem;
   border-top: 1px solid #222;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 10;
 }
 
 .footer-top {
