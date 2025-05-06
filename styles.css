@@ -52,7 +52,7 @@ header p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 160px 20px;
+  padding: 130px 20px;
 }
 
 .animated-entry {
